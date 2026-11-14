@@ -1,0 +1,104 @@
+/* Planner refinement: inherited Lora/Manrope, moss, cream and ochre. */
+.order-page {
+  --planner-ink: #263f32;
+  --planner-muted: #536454;
+  --planner-line: #cbd5c6;
+  --planner-paper: #fffdf6;
+  --planner-radius: 12px;
+  color: var(--planner-ink);
+  accent-color: var(--planner-ink);
+  caret-color: var(--planner-ink);
+  scrollbar-color: #87987e #eef0e6;
+}
+.order-page ::selection { background: #ecd19b; color: #203c2e; }
+.order-page :is(button,a,input,select,textarea):focus-visible {
+  outline: 3px solid #996c28;
+  outline-offset: 3px;
+}
+.order-page a { text-underline-offset: .25em; }
+.order-page :is(h1,h2,h3) { text-wrap: balance; }
+body:has(.atlas-builder) .order-intro {
+  padding: 36px 0 28px;
+  gap: 12px 64px;
+}
+body:has(.atlas-builder) .order-intro h1 { grid-row: 1 / 3; line-height: 1.14; }
+body:has(.atlas-builder) .order-intro .lead { grid-column: 2; font-size: 16px; line-height: 1.7; }
+body:has(.atlas-builder) .order-intro > a { grid-column: 2; margin: 0; }
+.atlas-builder .map-section-heading { margin-bottom: 18px; gap: 24px; }
+.atlas-builder .map-section-heading h2 { font-size: clamp(25px,2.2vw,32px); margin: 0; }
+.atlas-builder .map-section-heading > p { font-size: 14px; color: var(--planner-muted); }
+.atlas-toolbar {
+  padding: 14px 16px;
+  gap: 12px;
+  background: var(--planner-paper);
+  border-color: var(--planner-line);
+  border-radius: 16px 16px 0 0;
+}
+.atlas-search { font-size: 12px; flex: 1 1 240px; }
+.atlas-search input { font-size: 14px; min-height: 36px; }
+.atlas-search input::placeholder { color: #5f6b5e; opacity: 1; }
+.atlas-filters { order: 4; flex: 1 0 100%; flex-wrap: nowrap; overflow-x: auto; padding-top: 8px; border-top: 1px solid #e2e7da; gap: 6px; }
+.atlas-filters button { border-color: transparent; background: transparent; border-radius: 8px; font-size: 13px; white-space: nowrap; }
+.atlas-filters button:hover { background: #e9eedf; }
+.atlas-filters button[aria-pressed=true] { background: #294936; color: #fffdf6; }
+.atlas-toolbar .atlas-nearby-toggle { font-size: 13px; background: transparent; border-color: var(--planner-line); border-radius: 10px; padding: 10px 14px; }
+.atlas-bag-toggle { font-size: 13px; padding: 12px 18px; border-radius: 10px; background: #ecd09a; border-color: #ecd09a; }
+.atlas-bag-toggle:hover { background: #e3be78; }
+.atlas-map-controls button { border-radius: 10px; box-shadow: 0 3px 9px #233e3010; }
+.atlas-builder .destination-panel { border-color: #b8c7af; box-shadow: 0 12px 30px #183b2524; }
+.atlas-builder .destination-panel .map-activity { border: 0; border-bottom: 1px solid #e0e5d8; border-radius: 0; background: transparent; }
+.atlas-builder .destination-panel .activity-photo { border-radius: 7px; overflow: hidden; }
+.atlas-builder .destination-panel .activity-copy h4 { font-size: 13px; line-height: 1.45; }
+.atlas-builder .destination-panel .activity-label { font-size: 11px; letter-spacing: 0; }
+.atlas-builder .destination-panel .activity-actions button { font-size: 11px; border-radius: 7px; }
+.atlas-builder .destination-panel .activity-actions { flex-wrap: wrap; gap: 0 6px; }
+.nearby-panel .nearby-kicker { display: none; }
+.nearby-panel p { font-size: 14px; }
+.nearby-card { border: 0; border-bottom: 1px solid var(--planner-line); border-radius: 0; background: transparent; padding-bottom: 12px; margin: 16px 0; }
+.nearby-photo { border-radius: 8px; overflow: hidden; }
+.nearby-card h4 { font-size: 14px; }
+.nearby-card .nearby-reason,.nearby-panel .nearby-note { font-size: 12px; }
+.nearby-actions button { font-size: 12px; border-radius: 8px; }
+.route-help,.route-plan-controls p { font-size: 13px; }
+.atlas-days button { border-radius: 8px; font-size: 13px; }
+.order-workspace { margin-top: 56px; }
+.order-page #order-form { border-radius: 16px; }
+.order-form-title h2 { margin-top: 0; }
+.order-page :is(textarea,select) { border-color: #a6b5a2; border-radius: 10px; }
+.order-page textarea::placeholder { color: #626c60; opacity: 1; }
+.order-page .order-choices span { border-radius: 9px; }
+.order-page .order-choices input:checked + span { box-shadow: inset 0 0 0 1px #294936; }
+.order-page .order-examples button { border-radius: 8px; }
+.order-page .order-side { border-radius: 16px; }
+.order-page .guide-context { display: none; }
+.order-page .guide-copy h2 { margin-top: 22px; }
+.order-page .guide-copy p { line-height: 1.75; }
+#order-days .visual-day { border-radius: 12px; border-color: var(--planner-line); margin-bottom: 24px; padding-right: 24px; }
+#order-days .visual-day > figure img { height: 230px; }
+#order-days .visual-day figcaption { font-size: 12px; border-radius: 6px; background: #203e30; }
+.day-map-button { font-size: 13px; border-radius: 8px; }
+.order-page .order-result { margin-top: 64px; }
+@media (max-width: 900px) {
+  body:has(.atlas-builder) .order-intro { gap: 16px 32px; }
+  .atlas-builder .map-section-heading > p { max-width: 240px; }
+}
+@media (max-width: 600px) {
+  body:has(.atlas-builder) .order-intro { display: block; padding: 28px 0 24px; }
+  body:has(.atlas-builder) .order-intro h1 { font-size: 33px; margin: 0 0 18px; }
+  body:has(.atlas-builder) .order-intro .lead { font-size: 15px; margin: 0 0 18px; }
+  body:has(.atlas-builder) .order-intro > a { font-size: 14px; }
+  .atlas-builder { margin-top: 8px; }
+  .atlas-toolbar { padding: 12px; gap: 8px; }
+  .atlas-search { flex: 1 0 100%; border-bottom: 1px solid #e2e7da; padding-bottom: 4px; }
+  .atlas-search input { min-height: 40px; font-size: 16px; }
+  .atlas-toolbar .atlas-nearby-toggle,.atlas-bag-toggle { flex: 1; font-size: 13px; padding: 11px 9px; }
+  .atlas-filters { padding-top: 4px; border-top: 0; gap: 3px; }
+  .atlas-filters button { padding: 9px 11px; }
+  .atlas-builder .destination-panel .activity-copy h4 { font-size: 12px; }
+  .atlas-builder .destination-panel .activity-actions button { font-size: 11px; }
+  .atlas-builder .destination-panel .activity-label { font-size: 10px; }
+  .order-workspace { margin-top: 32px; }
+  #order-days .visual-day > figure img { height: 180px; }
+  .atlas-day-note { font-size: 12px; }
+  .atlas-expanded:has(.atlas-days:not([hidden])) .journey-grid { height: calc(100svh - 280px); }
+}

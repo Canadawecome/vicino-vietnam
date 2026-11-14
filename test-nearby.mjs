@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict';import {nearbyIdeas,distanceKm} from './public/nearby.js';import {mapActivities,destinations} from './public/map-data.js';
+assert.deepEqual(nearbyIdeas([]),[]);assert.deepEqual(nearbyIdeas(['unknown']),[]);assert.equal(distanceKm(destinations[0],destinations[0]),0);
+const initial=nearbyIdeas(['hoian-1']);assert(initial.length);assert(initial[0].same);assert(initial.some(a=>a.destination==='danang'));for(const a of initial){assert(a.local);assert(a.km<=120);assert.notEqual(a.id,'hoian-1');}
+for(const anchor of mapActivities){const avoid=['boats','animals','heights'];const ideas=nearbyIdeas([anchor.id],{avoid});assert(ideas.length<=4);assert(!ideas.some(a=>a.id===anchor.id||a.avoid.some(x=>avoid.includes(x))));assert(ideas.every(a=>a.km<=120));}
+assert(!nearbyIdeas(['hoian-1',initial[0].id]).some(a=>a.id===initial[0].id));assert.deepEqual(nearbyIdeas(mapActivities.map(a=>a.id)),[]);console.log('PASS nearby: empty/invalid, local only, radius, exclusions, diversity, no selected duplicates');

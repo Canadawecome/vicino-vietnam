@@ -1,0 +1,1 @@
+export function orderDestinations(places,requested){const valid=new Set(places.map(d=>d.id));const ids=Array.isArray(requested)?[...new Set(requested.filter(id=>typeof id==='string'&&valid.has(id)))]:[];const remaining=places.filter(d=>!ids.includes(d.id)).sort((a,b)=>b.lat-a.lat);return [...ids.map(id=>places.find(d=>d.id===id)),...remaining];}
